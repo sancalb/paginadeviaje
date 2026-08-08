@@ -187,16 +187,13 @@ a {
 }
 
 .icon-whatsapp::before {
-  width: 18px;
-  height: 18px;
-  display: grid;
-  place-items: center;
-  border: 2px solid currentColor;
-  border-radius: 50%;
-  content: "W";
-  font-size: 0.58rem;
-  font-weight: 950;
-  line-height: 1;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: currentColor;
+  content: "";
+  mask: url("public/assets/icons/whatsapp.svg") center / contain no-repeat;
+  -webkit-mask: url("public/assets/icons/whatsapp.svg") center / contain no-repeat;
 }
 
 .icon-pin::before {
@@ -1191,6 +1188,17 @@ a {
 
 .crew-section {
   background: var(--paper);
+}
+
+.crew-section .section-heading {
+  margin-bottom: 42px;
+}
+
+.crew-section .section-heading h2 {
+  max-width: 940px;
+  margin-right: auto;
+  margin-left: auto;
+  text-wrap: balance;
 }
 
 .mini-crew {
