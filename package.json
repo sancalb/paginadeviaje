@@ -1,0 +1,14 @@
+{
+  "name": "deviaje-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0 <25.0.0"
+  },
+  "scripts": {
+    "build": "node --check server.mjs && node --check script.js && node --check lib/google-reviews.mjs && node --check tools/refresh-google-reviews.mjs && node --check tools/discover-google-places.mjs",
+    "start": "node server.mjs",
+    "refresh:reviews": "node tools/refresh-google-reviews.mjs"
+  }
+}
