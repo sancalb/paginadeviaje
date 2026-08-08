@@ -143,7 +143,7 @@ function getReviewAuthor(review) {
 }
 
 function getReviewLink(review) {
-  return review?.link || review?.review_link || review?.url || review?.share_link || "";
+  return review?.url || review?.link || review?.review_link || review?.share_link || "";
 }
 
 function getCombinedReviewsData(data) {
