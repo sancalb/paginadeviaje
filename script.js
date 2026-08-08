@@ -123,8 +123,16 @@ const reviewsSummary = reviewsSection?.querySelector("[data-reviews-summary]");
 const reviewsList = reviewsSection?.querySelector("[data-reviews-list]");
 const reviewsEmpty = reviewsSection?.querySelector("[data-reviews-empty]");
 const reviewsGoogleLink = reviewsSection?.querySelector("[data-reviews-google-link]");
+const reviewTabs = reviewsSection?.querySelector("[data-review-tabs]");
+const reviewTabButtons = reviewsSection?.querySelectorAll("[data-review-branch]");
+const reviewPrev = reviewsSection?.querySelector("[data-review-prev]");
+const reviewNext = reviewsSection?.querySelector("[data-review-next]");
+const reviewDots = reviewsSection?.querySelector("[data-review-dots]");
+const branchMapCanvases = document.querySelectorAll("[data-branch-map]");
 const reviewFormatter = new Intl.NumberFormat("es-MX");
 let reviewsData = null;
+let activeReviewBranch = "monterrey";
+let reviewOffset = 0;
 
 function hasBranchReviewData(branch) {
   return Boolean(branch && (Number(branch.rating) > 0 || Number(branch.reviewCount) > 0 || branch.reviews?.length));
@@ -132,6 +140,10 @@ function hasBranchReviewData(branch) {
 
 function hasAnyReviewLink(data) {
   return Object.values(data?.branches || {}).some((branch) => branch.mapsUrl);
+}
+
+function hasRenderableReviewTexts(data) {
+  return Object.values(data?.branches || {}).some((branch) => (branch?.reviews || []).some((review) => getReviewText(review)));
 }
 
 function getReviewText(review) {
@@ -169,6 +181,26 @@ function getCombinedReviewsData(data) {
   };
 }
 
+function getReviewBranch(data, key) {
+  return data?.branches?.[key] || null;
+}
+
+function getBranchReviews(branch) {
+  return (branch?.reviews || []).filter((review) => getReviewText(review));
+}
+
+function getVisibleReviewCount() {
+  return window.matchMedia("(max-width: 900px)").matches ? Number.POSITIVE_INFINITY : 3;
+}
+
+function getActiveBranchWithReviews(data) {
+  const active = getReviewBranch(data, activeReviewBranch);
+  if (getBranchReviews(active).length) return activeReviewBranch;
+
+  const firstAvailable = Object.entries(data?.branches || {}).find(([, branch]) => getBranchReviews(branch).length);
+  return firstAvailable?.[0] || activeReviewBranch;
+}
+
 function renderStars(rating) {
   const value = Math.max(0, Math.min(5, Math.round(Number(rating) || 0)));
   return `${"★".repeat(value)}${"☆".repeat(5 - value)}`;
@@ -204,7 +236,7 @@ function createReviewCard(review, index) {
   const reviewText = getReviewText(review);
   const reviewAuthor = getReviewAuthor(review);
   const reviewLink = getReviewLink(review);
-  const shouldExpand = reviewText.length > (index === 0 ? 260 : 170);
+  const shouldExpand = true;
 
   const body = document.createElement("div");
   const stars = document.createElement("div");
@@ -264,49 +296,96 @@ function createReviewCard(review, index) {
   return article;
 }
 
-function renderCombinedReviews() {
+function renderReviewSummary(branch) {
+  reviewsSummary.replaceChildren();
+
+  const combined = getCombinedReviewsData(reviewsData);
+  const rating = Number(combined.rating) > 0 ? Number(combined.rating).toFixed(1) : "";
+  const count = Number(combined.reviewCount) > 0 ? reviewFormatter.format(combined.reviewCount) : "";
+
+  const icon = document.createElement("span");
+  icon.className = "reviews-summary-star";
+  icon.textContent = "★";
+
+  const copy = document.createElement("div");
+  const ratingLine = document.createElement("strong");
+  ratingLine.textContent = rating || "Google";
+  copy.append(ratingLine);
+
+  if (rating) {
+    const source = document.createElement("span");
+    source.className = "rating-source";
+    source.textContent = "en Google";
+    copy.append(source);
+  }
+
+  const stars = document.createElement("span");
+  stars.className = "rating-stars";
+  stars.textContent = renderStars(combined.rating || branch?.rating || 5);
+  copy.append(stars);
+
+  if (count) {
+    const countLine = document.createElement("span");
+    countLine.className = "rating-count";
+    countLine.textContent = `${count} opiniones en Google`;
+    copy.append(countLine);
+  }
+
+  reviewsSummary.append(icon, copy);
+}
+
+function renderReviewTabs() {
+  reviewTabButtons?.forEach((button) => {
+    const branch = button.dataset.reviewBranch;
+    const branchData = getReviewBranch(reviewsData, branch);
+    const hasReviews = getBranchReviews(branchData).length > 0;
+    button.classList.toggle("is-active", branch === activeReviewBranch);
+    button.disabled = !hasReviews;
+  });
+}
+
+function renderReviewDots(totalReviews, visibleCount) {
+  if (!reviewDots) return;
+  reviewDots.replaceChildren();
+
+  const pages = Number.isFinite(visibleCount) ? Math.max(1, totalReviews - visibleCount + 1) : totalReviews;
+  if (pages <= 1) return;
+
+  Array.from({ length: pages }).forEach((_, index) => {
+    const dot = document.createElement("span");
+    dot.classList.toggle("is-active", index === reviewOffset);
+    reviewDots.append(dot);
+  });
+}
+
+function renderBranchReviews() {
   if (!reviewsData || !reviewsSection || !reviewsSummary || !reviewsList || !reviewsEmpty || !reviewsGoogleLink) {
     return;
   }
 
-  const branch = getCombinedReviewsData(reviewsData);
-  const reviews = branch.reviews;
-  const hasData = hasBranchReviewData(branch);
+  activeReviewBranch = getActiveBranchWithReviews(reviewsData);
+  const branch = getReviewBranch(reviewsData, activeReviewBranch);
+  const reviews = getBranchReviews(branch);
+  const visibleCount = getVisibleReviewCount();
+  const maxOffset = Number.isFinite(visibleCount) ? Math.max(0, reviews.length - visibleCount) : 0;
+  reviewOffset = Math.max(0, Math.min(reviewOffset, maxOffset));
+  const visibleReviews = Number.isFinite(visibleCount) ? reviews.slice(reviewOffset, reviewOffset + visibleCount) : reviews;
 
   reviewsSection.hidden = false;
-
-  reviewsSummary.replaceChildren();
-  if (hasData) {
-    const icon = document.createElement("span");
-    icon.className = "reviews-summary-star";
-    icon.textContent = "★";
-
-    const copy = document.createElement("div");
-    const rating = Number(branch.rating) > 0 ? Number(branch.rating).toFixed(1) : "";
-    const count = Number(branch.reviewCount) > 0 ? reviewFormatter.format(branch.reviewCount) : "";
-    const ratingLine = document.createElement("strong");
-    ratingLine.textContent = rating ? `${rating} en Google` : "Google";
-    copy.append(ratingLine);
-
-    if (count) {
-      const countLine = document.createElement("span");
-      countLine.textContent = `${count} opiniones en Google`;
-      copy.append(countLine);
-    }
-
-    reviewsSummary.append(icon, copy);
-  } else {
-    reviewsSummary.textContent = "Google";
-  }
+  renderReviewSummary(branch);
+  renderReviewTabs();
 
   reviewsList.replaceChildren();
-  reviews.slice(0, 3).forEach((review, index) => reviewsList.append(createReviewCard(review, index)));
+  visibleReviews.forEach((review, index) => reviewsList.append(createReviewCard(review, index)));
 
   const showFallback = !reviews.length;
   reviewsList.hidden = showFallback;
   reviewsEmpty.hidden = !showFallback;
   reviewsEmpty.textContent = showFallback ? "" : "";
-  reviewsGoogleLink.href = branch.mapsUrl || "#sucursales";
+  reviewsGoogleLink.href = branch?.mapsUrl || "#sucursales";
+  renderReviewDots(reviews.length, Number.isFinite(visibleCount) ? visibleCount : 1);
+  if (reviewPrev) reviewPrev.hidden = reviews.length <= 3;
+  if (reviewNext) reviewNext.hidden = reviews.length <= 3;
 }
 
 async function initGoogleReviews() {
@@ -318,18 +397,124 @@ async function initGoogleReviews() {
     const data = await response.json();
     reviewsData = data;
 
-    if (!hasAnyReviewLink(data)) {
+    if (!hasAnyReviewLink(data) || !hasRenderableReviewTexts(data)) {
       reviewsSection.hidden = true;
       return;
     }
 
-    renderCombinedReviews();
+    renderBranchReviews();
   } catch {
     reviewsSection.hidden = true;
   }
 }
 
 initGoogleReviews();
+
+reviewTabButtons?.forEach((button) => {
+  button.addEventListener("click", () => {
+    activeReviewBranch = button.dataset.reviewBranch || activeReviewBranch;
+    reviewOffset = 0;
+    renderBranchReviews();
+  });
+});
+
+reviewPrev?.addEventListener("click", () => {
+  if (window.matchMedia("(max-width: 900px)").matches) {
+    reviewsList?.scrollBy({ left: -Math.max(260, reviewsList.clientWidth * 0.9), behavior: "smooth" });
+    return;
+  }
+
+  reviewOffset = Math.max(0, reviewOffset - 1);
+  renderBranchReviews();
+});
+
+reviewNext?.addEventListener("click", () => {
+  if (window.matchMedia("(max-width: 900px)").matches) {
+    reviewsList?.scrollBy({ left: Math.max(260, reviewsList.clientWidth * 0.9), behavior: "smooth" });
+    return;
+  }
+
+  const reviews = getBranchReviews(getReviewBranch(reviewsData, activeReviewBranch));
+  reviewOffset = Math.min(Math.max(0, reviews.length - 3), reviewOffset + 1);
+  renderBranchReviews();
+});
+
+window.addEventListener("resize", () => {
+  if (reviewsData) renderBranchReviews();
+});
+
+function initBranchMaps() {
+  if (!branchMapCanvases.length) return;
+
+  if (!window.L) {
+    branchMapCanvases.forEach((canvas) => canvas.classList.add("is-map-unavailable"));
+    return;
+  }
+
+  branchMapCanvases.forEach((canvas) => {
+    if (canvas.dataset.mapReady === "true") return;
+
+    const lat = Number(canvas.dataset.lat);
+    const lng = Number(canvas.dataset.lng);
+
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) {
+      canvas.classList.add("is-map-unavailable");
+      return;
+    }
+
+    const map = window.L.map(canvas, {
+      zoomControl: false,
+      attributionControl: false,
+      dragging: false,
+      scrollWheelZoom: false,
+      doubleClickZoom: false,
+      boxZoom: false,
+      keyboard: false,
+      tap: false,
+      touchZoom: false,
+    }).setView([lat, lng], 16);
+
+    window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      crossOrigin: true,
+    }).addTo(map);
+
+    window.L.marker([lat, lng], {
+      interactive: false,
+      keyboard: false,
+      title: canvas.dataset.mapLabel || "deviaje",
+      icon: window.L.divIcon({
+        className: "branch-map-pin",
+        html: "",
+        iconSize: [24, 24],
+        iconAnchor: [12, 24],
+      }),
+    }).addTo(map);
+
+    canvas.dataset.mapReady = "true";
+    window.setTimeout(() => map.invalidateSize(), 160);
+  });
+}
+
+if (document.readyState === "complete") {
+  initBranchMaps();
+} else {
+  window.addEventListener("load", initBranchMaps, { once: true });
+}
+
+const destinationTrack = document.querySelector("[data-destination-track]");
+const destinationPrev = document.querySelector("[data-destination-prev]");
+const destinationNext = document.querySelector("[data-destination-next]");
+
+function scrollDestinations(direction) {
+  destinationTrack?.scrollBy({
+    left: direction * Math.max(280, destinationTrack.clientWidth * 0.58),
+    behavior: "smooth",
+  });
+}
+
+destinationPrev?.addEventListener("click", () => scrollDestinations(-1));
+destinationNext?.addEventListener("click", () => scrollDestinations(1));
 
 const revealItems = document.querySelectorAll(".reveal");
 
