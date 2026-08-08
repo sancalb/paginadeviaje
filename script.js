@@ -119,14 +119,12 @@ if (heroImage && !reduceMotion) {
 }
 
 const reviewsSection = document.querySelector("[data-google-reviews]");
-const reviewTabs = reviewsSection?.querySelectorAll("[data-review-branch]");
 const reviewsSummary = reviewsSection?.querySelector("[data-reviews-summary]");
 const reviewsList = reviewsSection?.querySelector("[data-reviews-list]");
 const reviewsEmpty = reviewsSection?.querySelector("[data-reviews-empty]");
 const reviewsGoogleLink = reviewsSection?.querySelector("[data-reviews-google-link]");
 const reviewFormatter = new Intl.NumberFormat("es-MX");
 let reviewsData = null;
-let activeReviewsBranch = "monterrey";
 
 function hasBranchReviewData(branch) {
   return Boolean(branch && (Number(branch.rating) > 0 || Number(branch.reviewCount) > 0 || branch.reviews?.length));
@@ -134,6 +132,41 @@ function hasBranchReviewData(branch) {
 
 function hasAnyReviewLink(data) {
   return Object.values(data?.branches || {}).some((branch) => branch.mapsUrl);
+}
+
+function getReviewText(review) {
+  return review?.text || review?.snippet || review?.comment || review?.review || review?.body || "";
+}
+
+function getReviewAuthor(review) {
+  return review?.author || review?.author_name || review?.user?.name || review?.profile?.name || review?.name || "";
+}
+
+function getReviewLink(review) {
+  return review?.link || review?.review_link || review?.url || review?.share_link || "";
+}
+
+function getCombinedReviewsData(data) {
+  const branches = Object.values(data?.branches || {});
+  const reviews = branches.flatMap((branch) => {
+    return (branch?.reviews || []).filter((review) => getReviewText(review));
+  });
+  const reviewCount = branches.reduce((total, branch) => total + (Number(branch?.reviewCount) || 0), 0);
+  const weightedRatings = branches.filter((branch) => Number(branch?.rating) > 0 && Number(branch?.reviewCount) > 0);
+  const rating = weightedRatings.length
+    ? weightedRatings.reduce((total, branch) => total + Number(branch.rating) * Number(branch.reviewCount), 0)
+      / weightedRatings.reduce((total, branch) => total + Number(branch.reviewCount), 0)
+    : (() => {
+        const ratings = branches.map((branch) => Number(branch?.rating)).filter((value) => value > 0);
+        return ratings.length ? ratings.reduce((total, value) => total + value, 0) / ratings.length : null;
+      })();
+
+  return {
+    rating,
+    reviewCount,
+    mapsUrl: branches.find((branch) => branch?.mapsUrl)?.mapsUrl || "",
+    reviews,
+  };
 }
 
 function renderStars(rating) {
@@ -166,8 +199,12 @@ function createReviewCard(review, index) {
   const article = document.createElement("article");
   article.className = "review-card";
   if (index === 0) article.classList.add("is-featured");
-  if (index === 2) article.classList.add("is-offset");
-  if (index === 3) article.classList.add("is-soft");
+  if (index === 2) article.classList.add("is-soft");
+
+  const reviewText = getReviewText(review);
+  const reviewAuthor = getReviewAuthor(review);
+  const reviewLink = getReviewLink(review);
+  const shouldExpand = reviewText.length > (index === 0 ? 260 : 170);
 
   const body = document.createElement("div");
   const stars = document.createElement("div");
@@ -177,19 +214,19 @@ function createReviewCard(review, index) {
 
   const text = document.createElement("p");
   text.className = "review-text";
-  appendReviewText(text, review.text, index === 0);
+  appendReviewText(text, reviewText, index === 0);
 
   const meta = document.createElement("div");
   meta.className = "review-meta";
 
-  if (review.author) {
+  if (reviewAuthor) {
     const author = document.createElement("strong");
-    author.textContent = review.author;
+    author.textContent = reviewAuthor;
     meta.append(author);
   }
 
   const source = document.createElement("span");
-  source.textContent = review.author ? "Google" : "Google";
+  source.textContent = "Google";
   meta.append(source);
 
   body.append(stars, text, meta);
@@ -198,23 +235,25 @@ function createReviewCard(review, index) {
   const actions = document.createElement("div");
   actions.className = "review-actions";
 
-  const more = document.createElement("button");
-  more.className = "review-more";
-  more.type = "button";
-  more.textContent = "Leer reseña completa";
-  more.addEventListener("click", () => {
-    const expanded = article.classList.toggle("is-expanded");
-    more.textContent = expanded ? "Contraer historia" : "Leer reseña completa";
-  });
-  actions.append(more);
+  if (shouldExpand) {
+    const more = document.createElement("button");
+    more.className = "review-more";
+    more.type = "button";
+    more.textContent = "Leer completa";
+    more.addEventListener("click", () => {
+      const expanded = article.classList.toggle("is-expanded");
+      more.textContent = expanded ? "Contraer" : "Leer completa";
+    });
+    actions.append(more);
+  }
 
-  if (review.link) {
+  if (reviewLink) {
     const link = document.createElement("a");
     link.className = "review-google";
-    link.href = review.link;
+    link.href = reviewLink;
     link.target = "_blank";
     link.rel = "noopener";
-    link.textContent = "Ver en Google →";
+    link.textContent = "Ver reseña en Google ↗";
     actions.append(link);
   }
 
@@ -225,21 +264,16 @@ function createReviewCard(review, index) {
   return article;
 }
 
-function renderReviewsBranch(branchKey) {
+function renderCombinedReviews() {
   if (!reviewsData || !reviewsSection || !reviewsSummary || !reviewsList || !reviewsEmpty || !reviewsGoogleLink) {
     return;
   }
 
-  const branch = reviewsData.branches?.[branchKey];
-  const reviews = (branch?.reviews || []).filter((review) => review.text);
+  const branch = getCombinedReviewsData(reviewsData);
+  const reviews = branch.reviews;
   const hasData = hasBranchReviewData(branch);
 
   reviewsSection.hidden = false;
-  reviewTabs?.forEach((tab) => {
-    const selected = tab.dataset.reviewBranch === branchKey;
-    tab.classList.toggle("is-active", selected);
-    tab.setAttribute("aria-selected", String(selected));
-  });
 
   reviewsSummary.replaceChildren();
   if (hasData) {
@@ -247,14 +281,18 @@ function renderReviewsBranch(branchKey) {
     icon.className = "reviews-summary-star";
     icon.textContent = "★";
 
-    const copy = document.createElement("p");
-    const rating = Number(branch.rating) > 0 ? Number(branch.rating).toFixed(1).replace(".0", "") : "";
+    const copy = document.createElement("div");
+    const rating = Number(branch.rating) > 0 ? Number(branch.rating).toFixed(1) : "";
     const count = Number(branch.reviewCount) > 0 ? reviewFormatter.format(branch.reviewCount) : "";
-    copy.textContent = rating && count
-      ? `${rating} en Google · ${count} opiniones reales`
-      : rating
-        ? `${rating} en Google`
-        : "Google";
+    const ratingLine = document.createElement("strong");
+    ratingLine.textContent = rating ? `${rating} en Google` : "Google";
+    copy.append(ratingLine);
+
+    if (count) {
+      const countLine = document.createElement("span");
+      countLine.textContent = `${count} opiniones en Google`;
+      copy.append(countLine);
+    }
 
     reviewsSummary.append(icon, copy);
   } else {
@@ -262,12 +300,13 @@ function renderReviewsBranch(branchKey) {
   }
 
   reviewsList.replaceChildren();
-  reviews.slice(0, 4).forEach((review, index) => reviewsList.append(createReviewCard(review, index)));
+  reviews.slice(0, 3).forEach((review, index) => reviewsList.append(createReviewCard(review, index)));
 
   const showFallback = !reviews.length;
   reviewsList.hidden = showFallback;
   reviewsEmpty.hidden = !showFallback;
-  reviewsGoogleLink.href = branch?.mapsUrl || "#sucursales";
+  reviewsEmpty.textContent = showFallback ? "" : "";
+  reviewsGoogleLink.href = branch.mapsUrl || "#sucursales";
 }
 
 async function initGoogleReviews() {
@@ -284,20 +323,11 @@ async function initGoogleReviews() {
       return;
     }
 
-    const firstBranchWithData = Object.entries(data.branches || {}).find(([, branch]) => hasBranchReviewData(branch));
-    activeReviewsBranch = firstBranchWithData?.[0] || "monterrey";
-    renderReviewsBranch(activeReviewsBranch);
+    renderCombinedReviews();
   } catch {
     reviewsSection.hidden = true;
   }
 }
-
-reviewTabs?.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    activeReviewsBranch = tab.dataset.reviewBranch || "monterrey";
-    renderReviewsBranch(activeReviewsBranch);
-  });
-});
 
 initGoogleReviews();
 

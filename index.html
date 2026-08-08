@@ -19,7 +19,7 @@
     <link rel="icon" href="public/assets/brand/mark-yellow.png" />
     <link rel="preload" as="image" href="public/assets/photos/hero-japan.avif" type="image/avif" />
     <link rel="preload" as="image" href="public/assets/characters/diego-cutout.webp" type="image/webp" />
-    <link rel="stylesheet" href="styles.css?v=reviews-editorial-2" />
+    <link rel="stylesheet" href="styles.css?v=trust-flow-1" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -43,12 +43,11 @@
       </button>
 
       <nav class="main-nav" id="main-nav" data-nav>
-        <a href="#conocenos">Conócenos</a>
-        <a href="#ayuda">Cómo ayudamos</a>
-        <a href="#destinos">Inspiración</a>
-        <a href="#confianza">Confianza</a>
         <a href="#resenas">Reseñas</a>
         <a href="#sucursales">Sucursales</a>
+        <a href="#ayuda">Cómo ayudamos</a>
+        <a href="#destinos">Inspiración</a>
+        <a href="#promociones">Promociones</a>
         <a
           class="nav-cta whatsapp-link"
           href="#"
@@ -85,7 +84,7 @@
                 <span class="button-icon icon-whatsapp" aria-hidden="true"></span>
                 Habla con un asesor
               </a>
-              <a class="button button-ghost" href="#conocenos">Conoce deviaje</a>
+              <a class="button button-ghost" href="#resenas">Ver reseñas</a>
             </div>
           </div>
 
@@ -95,24 +94,81 @@
         </div>
       </section>
 
-      <section class="story-section" id="conocenos">
-        <div class="story-copy reveal">
-          <p class="eyebrow">Conoce deviaje</p>
-          <h2>Cuéntanos la idea. Nosotros armamos la ruta.</h2>
-          <p>
-            Somos una agencia mexicana que escucha, propone y resuelve. No necesitas tener todo claro para empezar.
-          </p>
-          <a
-            class="button button-primary whatsapp-link"
-            href="#"
-            data-message="Hola deviaje, quiero contarles mi idea para viajar."
-          >
-            Cuéntanos tu viaje
-          </a>
+      <section class="section reviews-section" id="resenas" data-google-reviews hidden>
+        <div class="reviews-inner">
+          <div class="reviews-heading reveal">
+            <div class="reviews-heading-copy">
+              <p class="eyebrow">Viajeros que ya confiaron</p>
+              <h2>Ellos ya hicieron las maletas.</h2>
+              <p class="reviews-subtitle">Ahora te cuentan cómo les fue.</p>
+            </div>
+
+            <div class="reviews-character" aria-hidden="true">
+              <img src="public/assets/characters/chente-cutout.webp" alt="" loading="lazy" decoding="async" />
+              <p>Ellos te cuentan mejor que nosotros.</p>
+            </div>
+          </div>
+
+          <div class="reviews-shell reveal">
+            <div class="reviews-topline">
+              <div class="reviews-summary" data-reviews-summary></div>
+            </div>
+
+            <div class="reviews-stories" data-reviews-list aria-live="polite"></div>
+
+            <div class="reviews-empty" data-reviews-empty hidden></div>
+
+            <a class="reviews-google-link" data-reviews-google-link href="#" target="_blank" rel="noopener">
+              Ver todas las reseñas en Google
+            </a>
+          </div>
         </div>
-        <div class="story-visual reveal">
-          <img src="public/assets/branches/mty.avif" alt="Asesores de deviaje en la sucursal Monterrey" loading="lazy" decoding="async" />
-          <img class="section-character section-character-chente" src="public/assets/characters/chente-cutout.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+      </section>
+
+      <section class="section branches-section" id="sucursales">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Sucursales</p>
+          <h2>Asesores reales, cerca de ti.</h2>
+        </div>
+
+        <div class="branch-layout">
+          <article class="branch-feature reveal">
+            <img src="public/assets/branches/mty.avif" alt="Sucursal deviaje Monterrey" loading="eager" decoding="async" />
+            <div>
+              <h3>Monterrey</h3>
+              <p>Blvd. Puerta del Sol 1013, Monterrey, N.L.</p>
+              <p class="branch-phone">81 3529 4738</p>
+              <div class="branch-actions">
+                <a class="button button-primary" href="https://wa.me/528135294738" target="_blank" rel="noopener">
+                  <span class="button-icon icon-whatsapp" aria-hidden="true"></span>
+                  WhatsApp
+                </a>
+                <a class="button button-secondary" href="https://share.google/tX8O89KmEiMsLPtea" target="_blank" rel="noopener">
+                  <span class="button-icon icon-pin" aria-hidden="true"></span>
+                  Cómo llegar
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="branch-feature reveal">
+            <img src="public/assets/branches/gdl.avif" alt="Sucursal deviaje Guadalajara" loading="eager" decoding="async" />
+            <div>
+              <h3>Guadalajara</h3>
+              <p>Av. de las Américas 453, Guadalajara, Jal.</p>
+              <p class="branch-phone">33 3485 5963</p>
+              <div class="branch-actions">
+                <a class="button button-primary" href="https://wa.me/523334855963" target="_blank" rel="noopener">
+                  <span class="button-icon icon-whatsapp" aria-hidden="true"></span>
+                  WhatsApp
+                </a>
+                <a class="button button-secondary" href="https://share.google/ctm8ggcWMxuWFL2av" target="_blank" rel="noopener">
+                  <span class="button-icon icon-pin" aria-hidden="true"></span>
+                  Cómo llegar
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -324,139 +380,6 @@
         </div>
       </section>
 
-      <section class="trust-section" id="confianza">
-        <div class="trust-photo reveal">
-          <img src="public/assets/branches/gdl.avif" alt="Sucursal deviaje Guadalajara con asesores reales" loading="lazy" decoding="async" />
-          <img class="section-character section-character-chente-trust" src="public/assets/characters/chente-cutout.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-        </div>
-        <div class="trust-copy reveal">
-          <p class="eyebrow">Confianza real</p>
-          <h2>Viajar se disfruta más cuando sabes quién está detrás.</h2>
-          <p>Atención personalizada, sucursales físicas y asesores que sí te acompañan.</p>
-
-          <div class="trust-reasons" aria-label="Razones para confiar en deviaje">
-            <span>Asesores reales</span>
-            <span>Sucursales físicas</span>
-            <span>Acompañamiento</span>
-            <span>Perfiles en Google</span>
-          </div>
-
-          <div class="quiet-metrics" aria-label="Indicadores verificados">
-            <span><strong>3 años</strong> de experiencia</span>
-            <span><strong>5,000+</strong> clientes atendidos</span>
-            <span><strong>250+</strong> reseñas 5 estrellas en Google</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reviews-section" id="resenas" data-google-reviews hidden>
-        <div class="reviews-inner">
-          <div class="reviews-heading reveal">
-            <div class="reviews-heading-copy">
-              <p class="eyebrow">Viajeros que ya confiaron</p>
-              <h2>Ellos ya hicieron las maletas.<br />Ahora te cuentan cómo les fue.</h2>
-              <p>Experiencias reales de viajeros que confiaron en deviaje.</p>
-            </div>
-
-            <div class="reviews-character" aria-hidden="true">
-              <img src="public/assets/characters/chente-cutout.webp" alt="" loading="lazy" decoding="async" />
-              <p>Ellos te cuentan mejor que nosotros.</p>
-            </div>
-          </div>
-
-          <div class="reviews-shell reveal">
-            <div class="reviews-topline">
-              <div class="reviews-summary" data-reviews-summary></div>
-              <div class="review-tabs" role="tablist" aria-label="Reseñas por sucursal">
-                <button class="review-tab is-active" type="button" role="tab" aria-selected="true" data-review-branch="monterrey">
-                  Monterrey
-                </button>
-                <button class="review-tab" type="button" role="tab" aria-selected="false" data-review-branch="guadalajara">
-                  Guadalajara
-                </button>
-              </div>
-            </div>
-
-            <div class="reviews-stories" data-reviews-list aria-live="polite"></div>
-
-            <div class="reviews-empty" data-reviews-empty hidden></div>
-
-            <a class="reviews-google-link" data-reviews-google-link href="#" target="_blank" rel="noopener">
-              Ver todas las reseñas en Google
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section branches-section" id="sucursales">
-        <div class="section-heading section-heading-split reveal">
-          <div>
-            <p class="eyebrow">Sucursales</p>
-            <h2>Asesores reales, cerca de ti.</h2>
-          </div>
-          <p>Visítanos en Monterrey o Guadalajara. También podemos empezar por WhatsApp.</p>
-        </div>
-
-        <div class="branch-layout">
-          <article class="branch-feature reveal">
-            <img src="public/assets/branches/mty.avif" alt="Sucursal deviaje Monterrey" loading="lazy" decoding="async" />
-            <div>
-              <span>Sucursal activa</span>
-              <h3>Monterrey</h3>
-              <p>Blvd. Puerta del Sol 1013, Colinas de San Jemo 3er Sector, Monterrey, N.L.</p>
-              <p class="branch-phone">81 3529 4738</p>
-              <div class="branch-actions">
-                <a
-                  class="button button-primary whatsapp-link"
-                  href="#"
-                  data-phone="528135294738"
-                  data-message="Hola deviaje, quiero contactar a la sucursal Monterrey."
-                >
-                  <span class="button-icon icon-whatsapp" aria-hidden="true"></span>
-                  WhatsApp
-                </a>
-                <a class="button button-secondary" href="https://share.google/tX8O89KmEiMsLPtea" target="_blank" rel="noopener">
-                  <span class="button-icon icon-pin" aria-hidden="true"></span>
-                  Cómo llegar
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="branch-feature reveal">
-            <img src="public/assets/branches/gdl.avif" alt="Sucursal deviaje Guadalajara" loading="lazy" decoding="async" />
-            <div>
-              <span>Sucursal activa</span>
-              <h3>Guadalajara</h3>
-              <p>Av. de las Américas 453, Local 7, Col. Ladrón de Guevara, Guadalajara, Jal.</p>
-              <p class="branch-phone">33 3485 5963</p>
-              <div class="branch-actions">
-                <a
-                  class="button button-primary whatsapp-link"
-                  href="#"
-                  data-phone="523334855963"
-                  data-message="Hola deviaje, quiero contactar a la sucursal Guadalajara."
-                >
-                  <span class="button-icon icon-whatsapp" aria-hidden="true"></span>
-                  WhatsApp
-                </a>
-                <a class="button button-secondary" href="https://share.google/ctm8ggcWMxuWFL2av" target="_blank" rel="noopener">
-                  <span class="button-icon icon-pin" aria-hidden="true"></span>
-                  Cómo llegar
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="branch-coming reveal">
-            <img src="public/assets/characters/tenoch-cutout.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-            <div>
-              <h3>Próximamente CDMX</h3>
-              <p>Estamos preparando nuestra próxima base de operaciones.</p>
-            </div>
-          </article>
-        </div>
-      </section>
 
       <section class="final-cta" aria-label="Habla con un asesor de deviaje">
         <img src="public/assets/photos/falls.avif" alt="" aria-hidden="true" loading="lazy" decoding="async" />
@@ -523,10 +446,10 @@
         <p>Agencia mexicana especializada en viajes personalizados, sucursales físicas y asesoría humana.</p>
       </div>
       <nav aria-label="Footer">
-        <a href="#conocenos">Conócenos</a>
+        <a href="#resenas">Reseñas</a>
+        <a href="#sucursales">Sucursales</a>
         <a href="#ayuda">Cómo ayudamos</a>
         <a href="#destinos">Inspiración</a>
-        <a href="#sucursales">Sucursales</a>
       </nav>
       <div class="footer-note">
         <p>WhatsApp general pendiente de confirmación. Las sucursales usan sus números específicos.</p>
