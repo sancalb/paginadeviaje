@@ -47,7 +47,7 @@ function enableWhatsapp(anchor, message) {
 }
 
 document.querySelectorAll(".whatsapp-link").forEach((anchor) => {
-  const message = anchor.dataset.message || "Hola deviaje, quiero hablar con un asesor para planear mi viaje.";
+  const message = anchor.dataset.message || "Hola deviaje, quiero hablar con mi asesor para planear mi viaje.";
   enableWhatsapp(anchor, message);
 });
 
