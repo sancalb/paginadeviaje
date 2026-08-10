@@ -10,6 +10,7 @@ const host = process.env.HOST || "0.0.0.0";
 
 const allowedRootFiles = new Set(["index.html", "styles.css", "script.js"]);
 const allowedPublicPath = /^public[/\\]/;
+const allowedDataPath = /^data[/\\].+\.json$/;
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -33,7 +34,7 @@ function isWithinRoot(filePath) {
 
 function canServeStaticFile(filePath) {
   const pathFromRoot = relative(root, filePath);
-  return allowedRootFiles.has(pathFromRoot) || allowedPublicPath.test(pathFromRoot);
+  return allowedRootFiles.has(pathFromRoot) || allowedPublicPath.test(pathFromRoot) || allowedDataPath.test(pathFromRoot);
 }
 
 function resolveRequestPath(url) {

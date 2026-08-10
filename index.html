@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="/" />
     <title>deviaje | Tu próximo viaje empieza aquí</title>
     <meta
       name="description"
@@ -20,7 +21,7 @@
     <link rel="preload" as="image" href="public/assets/photos/hero-japan.avif" type="image/avif" />
     <link rel="preload" as="image" href="public/assets/characters/diego-cutout.webp" type="image/webp" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="styles.css?v=reviews-branches-1" />
+    <link rel="stylesheet" href="styles.css?v=reviews-carousel-1" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -59,7 +60,7 @@
       </nav>
     </header>
 
-    <main>
+    <main data-home-main>
       <section class="hero" id="inicio" aria-label="deviaje">
         <div class="hero-media" aria-hidden="true">
           <img src="public/assets/photos/hero-japan.avif" alt="" data-hero-image />
@@ -99,44 +100,28 @@
         <div class="reviews-inner">
           <div class="reviews-heading reveal">
             <div class="reviews-heading-copy">
+              <span class="reviews-heading-star" aria-hidden="true">★</span>
               <p class="eyebrow">Viajeros que ya confiaron</p>
-              <h2>Nuestros viajeros hablan por nosotros.</h2>
-              <p class="reviews-subtitle">Ahora te cuentan cómo les fue.</p>
-            </div>
-
-            <div class="reviews-character" aria-hidden="true">
-              <img src="public/assets/characters/chente-cutout.webp" alt="" loading="lazy" decoding="async" />
-              <p>Ellos te cuentan mejor que nosotros.</p>
+              <h2>Lo que dicen nuestros viajeros</h2>
+              <p class="reviews-subtitle">Experiencias reales, viajes que sí sucedieron.</p>
+              <aside class="reviews-summary" data-reviews-summary aria-label="Calificación en Google"></aside>
             </div>
           </div>
 
           <div class="reviews-shell reveal">
-            <div class="reviews-topline">
-              <aside class="reviews-summary" data-reviews-summary aria-label="Calificación en Google"></aside>
-
-              <div class="reviews-controls">
-                <div class="review-tabs" data-review-tabs aria-label="Reseñas por sucursal">
-                  <button type="button" data-review-branch="monterrey">Monterrey</button>
-                  <button type="button" data-review-branch="guadalajara">Guadalajara</button>
-                </div>
-
-                <div class="reviews-arrows" aria-label="Navegar reseñas">
-                  <button class="carousel-arrow" type="button" data-review-prev aria-label="Reseña anterior">‹</button>
-                  <button class="carousel-arrow" type="button" data-review-next aria-label="Siguiente reseña">›</button>
-                </div>
-              </div>
-            </div>
-
             <div class="reviews-content">
-              <div class="reviews-stories" data-reviews-list aria-live="polite"></div>
+              <button class="carousel-arrow reviews-arrow reviews-arrow-prev" type="button" data-review-prev aria-label="Reseña anterior">‹</button>
+              <div class="reviews-viewport">
+                <div class="reviews-stories" data-reviews-list aria-live="polite"></div>
+              </div>
+              <button class="carousel-arrow reviews-arrow reviews-arrow-next" type="button" data-review-next aria-label="Siguiente reseña">›</button>
               <div class="review-dots" data-review-dots aria-hidden="true"></div>
               <div class="reviews-empty" data-reviews-empty hidden></div>
 
-              <a class="reviews-google-link" data-reviews-google-link href="#" target="_blank" rel="noopener">
-                <span class="google-mark" aria-hidden="true">G</span>
-                <span>Ver todas en Google</span>
-                <span aria-hidden="true">↗</span>
-              </a>
+              <p class="reviews-trust-line">
+                <span class="reviews-trust-icon" aria-hidden="true"></span>
+                Opiniones verificadas en Google
+              </p>
             </div>
           </div>
         </div>
@@ -419,31 +404,49 @@
             <img src="public/assets/characters/diego-cutout.webp" alt="Diego, el Explorador de Destinos" loading="lazy" decoding="async" />
             <strong>Diego</strong>
             <span>Explorador de Destinos</span>
+            <em>Quiero descubrir a dónde ir.</em>
           </article>
           <article>
             <img src="public/assets/characters/chente-cutout.webp" alt="Chente, el Embajador de la Alegría" loading="lazy" decoding="async" />
             <strong>Chente</strong>
             <span>Embajador de la Alegría</span>
+            <em>Ya sé a dónde. Quiero saber qué hacer.</em>
           </article>
           <article>
             <img src="public/assets/characters/diana-cutout.webp" alt="Diana, la Cazadora de Ofertas" loading="lazy" decoding="async" />
             <strong>Diana</strong>
             <span>Cazadora de Ofertas</span>
+            <em>Enséñame una buena oportunidad.</em>
           </article>
-          <article>
-            <img src="public/assets/characters/frida-cutout.webp" alt="Frida, la Guardiana de la Cultura" loading="lazy" decoding="async" />
-            <strong>Frida</strong>
-            <span>Guardiana de la Cultura</span>
+          <article class="frida-member" data-frida-menu-host>
+            <a class="frida-trigger" href="/frida" data-frida-trigger aria-expanded="false" aria-controls="frida-destinations">
+              <img src="public/assets/characters/frida-cutout.webp" alt="Frida, la Guardiana de la Cultura" loading="lazy" decoding="async" />
+              <strong>Frida</strong>
+              <span>Guardiana de la Cultura</span>
+              <em>Quiero conocer algo diferente.</em>
+            </a>
+            <div class="frida-mega" id="frida-destinations" data-frida-menu aria-hidden="true">
+              <div class="frida-menu-panel" role="dialog" aria-modal="false" aria-labelledby="frida-menu-title">
+                <div class="frida-menu-copy">
+                  <p class="eyebrow">Frida · Guardiana de la Cultura</p>
+                  <h3 id="frida-menu-title">Viajes que tienen algo que contar.</h3>
+                  <p>Descubre lugares por su historia, sabores y forma de vivir.</p>
+                </div>
+                <div class="frida-menu-content" data-frida-menu-content></div>
+              </div>
+            </div>
           </article>
           <article>
             <img src="public/assets/characters/minerva-cutout.webp" alt="Minerva, la Protectora de los Viajeros" loading="lazy" decoding="async" />
             <strong>Minerva</strong>
             <span>Protectora de los Viajeros</span>
+            <em>Quiero tener todo bajo control.</em>
           </article>
           <article>
             <img src="public/assets/characters/tenoch-cutout.webp" alt="Tenoch, el Conquistador de Experiencias" loading="lazy" decoding="async" />
             <strong>Tenoch</strong>
             <span>Conquistador de Experiencias</span>
+            <em>Estoy planeando algo especial.</em>
           </article>
         </div>
       </section>
@@ -471,6 +474,96 @@
             <a class="button button-ghost" href="#sucursales">Conoce nuestras sucursales</a>
           </div>
         </div>
+      </section>
+    </main>
+
+    <main class="destination-page" data-destination-page hidden>
+      <section class="destination-hero" data-destination-hero>
+        <div class="destination-hero-media" data-destination-hero-media aria-hidden="true"></div>
+        <div class="destination-hero-overlay" aria-hidden="true"></div>
+        <div class="destination-hero-copy">
+          <a class="destination-back" href="/#personajes">← Volver a destinos de Frida</a>
+          <p class="eyebrow" data-destination-region></p>
+          <h1 data-destination-name></h1>
+          <p class="destination-country" data-destination-country></p>
+          <p class="destination-tagline" data-destination-tagline></p>
+          <a class="button button-primary destination-whatsapp" href="#" data-destination-whatsapp>
+            <span class="button-icon icon-whatsapp" aria-hidden="true"></span>
+            <span data-destination-cta></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section destination-story">
+        <div class="destination-story-intro">
+          <p class="eyebrow">Por qué ir</p>
+          <h2 data-destination-why-title></h2>
+          <p data-destination-description></p>
+        </div>
+        <div class="destination-story-card">
+          <img src="public/assets/characters/frida-cutout.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+          <div>
+            <p class="eyebrow">Frida te recomienda</p>
+            <ul data-destination-frida></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section destination-experiences">
+        <div class="section-heading section-heading-split">
+          <div>
+            <p class="eyebrow">Qué vivir ahí</p>
+            <h2>Ideas para empezar a imaginarlo.</h2>
+          </div>
+          <p>No es una ficha técnica: es el primer trazo de una ruta que podemos diseñar contigo.</p>
+        </div>
+        <div class="destination-highlights" data-destination-highlights></div>
+      </section>
+
+      <section class="section destination-gallery-section">
+        <div class="section-heading">
+          <p class="eyebrow">Galería</p>
+          <h2>Un vistazo al viaje.</h2>
+        </div>
+        <div class="destination-gallery" data-destination-gallery></div>
+      </section>
+
+      <section class="section destination-ideal">
+        <div>
+          <p class="eyebrow">Ideal para</p>
+          <div class="destination-tags" data-destination-ideal></div>
+        </div>
+        <a class="button button-primary destination-whatsapp" href="#" data-destination-whatsapp-bottom>
+          <span class="button-icon icon-whatsapp" aria-hidden="true"></span>
+          <span data-destination-cta-bottom></span>
+        </a>
+      </section>
+    </main>
+
+    <main class="frida-page" data-frida-page hidden>
+      <section class="frida-world-hero">
+        <div class="frida-world-copy">
+          <a class="destination-back" href="/#personajes">← Volver al equipo viajero</a>
+          <p class="eyebrow">Frida</p>
+          <h1>Hay lugares que se visitan.<br />Y otros que se quedan contigo.</h1>
+          <p>Historias, sabores, ciudades y culturas para descubrir el mundo de otra manera.</p>
+          <a class="button button-primary" href="/frida#frida-explorar">Encuentra tu próximo destino ↓</a>
+        </div>
+        <div class="frida-world-visual" aria-hidden="true">
+          <div class="frida-world-orbit" data-frida-hero-destinations></div>
+          <img src="public/assets/characters/frida-cutout.webp" alt="" loading="lazy" decoding="async" />
+        </div>
+      </section>
+
+      <section class="section frida-world-explore" id="frida-explorar">
+        <div class="section-heading section-heading-split">
+          <div>
+            <p class="eyebrow">Explorar con Frida</p>
+            <h2>El mundo contado por sus historias.</h2>
+          </div>
+          <p>Elige una ruta por lo que quieres sentir: cultura, calles, ciudades o mar.</p>
+        </div>
+        <div class="frida-category-stack" data-frida-categories></div>
       </section>
     </main>
 
