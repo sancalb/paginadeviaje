@@ -7,8 +7,10 @@
     "node": ">=24.0.0 <25.0.0"
   },
   "scripts": {
-    "build": "node --check server.mjs && node --check script.js && node --check lib/google-reviews.mjs && node --check tools/refresh-google-reviews.mjs && node --check tools/discover-google-places.mjs",
+    "build": "node --check server.mjs && node --check script.js && node --check lib/advisors.mjs && node --check lib/google-reviews.mjs && node --check tools/refresh-google-reviews.mjs && node --check tools/discover-google-places.mjs && node --check tools/import-google-reviews.mjs && node --check tools/report-advisor-matches.mjs",
     "start": "node server.mjs",
-    "refresh:reviews": "node tools/refresh-google-reviews.mjs"
+    "import:reviews": "node tools/import-google-reviews.mjs",
+    "refresh:reviews": "node tools/refresh-google-reviews.mjs",
+    "advisors:report": "node tools/report-advisor-matches.mjs"
   }
 }

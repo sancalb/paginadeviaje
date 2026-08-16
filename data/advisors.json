@@ -1,0 +1,210 @@
+{
+  "advisors": [
+    {
+      "id": "misael-rodriguez",
+      "slug": "misael-rodriguez",
+      "displayName": "Misael",
+      "fullName": "Misael Rodriguez",
+      "aliases": ["Misael Rodriguez", "Misael", "Misa"]
+    },
+    {
+      "id": "alberto-sanchez",
+      "slug": "alberto-sanchez",
+      "displayName": "Alberto",
+      "fullName": "Alberto Sanchez",
+      "aliases": ["Alberto Sanchez", "Alberto"]
+    },
+    {
+      "id": "rafael-flores",
+      "slug": "rafael-flores",
+      "displayName": "Rafael",
+      "fullName": "Rafael Flores",
+      "aliases": ["Rafael Flores", "Rafael", "Rafa"]
+    },
+    {
+      "id": "gerardo-del-bosque",
+      "slug": "gerardo-del-bosque",
+      "displayName": "Gerry",
+      "fullName": "Gerardo del Bosque",
+      "aliases": ["Gerardo del Bosque", "Gerry"]
+    },
+    {
+      "id": "alejandro-montemayor",
+      "slug": "alejandro-montemayor",
+      "displayName": "Alejandro M.",
+      "fullName": "Alejandro Montemayor",
+      "aliases": ["Alejandro Montemayor", "Alejandro M."]
+    },
+    {
+      "id": "karen-carrillo",
+      "slug": "karen-carrillo",
+      "displayName": "Karen",
+      "fullName": "Karen Carrillo",
+      "aliases": ["Karen Carrillo", "Karen"]
+    },
+    {
+      "id": "roberto-puente",
+      "slug": "roberto-puente",
+      "displayName": "Roberto",
+      "fullName": "Roberto Puente",
+      "aliases": ["Roberto Puente", "Roberto"]
+    },
+    {
+      "id": "miriam-cuesta",
+      "slug": "miriam-cuesta",
+      "displayName": "Miriam",
+      "fullName": "Miriam Cuesta",
+      "aliases": ["Miriam Cuesta", "Miriam"]
+    },
+    {
+      "id": "nayely-chapa",
+      "slug": "nayely-chapa",
+      "displayName": "Nayely",
+      "fullName": "Nayely Chapa",
+      "aliases": ["Nayely Chapa", "Nayely"]
+    },
+    {
+      "id": "alex-salinas",
+      "slug": "alex-salinas",
+      "displayName": "Alex",
+      "fullName": "Alex Salinas",
+      "aliases": ["Alex Salinas", "Alex"]
+    },
+    {
+      "id": "gilberto-vargas",
+      "slug": "gilberto-vargas",
+      "displayName": "Gilberto",
+      "fullName": "Gilberto Vargas",
+      "aliases": ["Gilberto Vargas", "Gilberto"]
+    },
+    {
+      "id": "gerardo-trevino",
+      "slug": "gerardo-trevino",
+      "displayName": "Gerardo",
+      "fullName": "Gerardo Treviño",
+      "aliases": ["Gerardo Treviño", "Gerardo Trevino"]
+    },
+    {
+      "id": "marcelo-saldivar",
+      "slug": "marcelo-saldivar",
+      "displayName": "Marcelo",
+      "fullName": "Marcelo Saldivar",
+      "aliases": ["Marcelo Saldivar", "Marcelo"]
+    },
+    {
+      "id": "eduardo-quiroga",
+      "slug": "eduardo-quiroga",
+      "displayName": "Guayo",
+      "fullName": "Eduardo Quiroga",
+      "aliases": ["Eduardo Quiroga", "Guayo"]
+    },
+    {
+      "id": "alejandro-puente",
+      "slug": "alejandro-puente",
+      "displayName": "Alejandro",
+      "fullName": "Alejandro Puente",
+      "aliases": ["Alejandro Puente"]
+    },
+    {
+      "id": "jessica-rangel",
+      "slug": "jessica-rangel",
+      "displayName": "Jessica",
+      "fullName": "Jessica Rangel",
+      "aliases": ["Jessica Rangel", "Jessica"]
+    },
+    {
+      "id": "heidy-warren",
+      "slug": "heidy-warren",
+      "displayName": "Heidy",
+      "fullName": "Heidy Warren",
+      "aliases": ["Heidy Warren", "Heidy"]
+    },
+    {
+      "id": "miguel-montalvo",
+      "slug": "miguel-montalvo",
+      "displayName": "Miguel",
+      "fullName": "Miguel Montalvo",
+      "aliases": ["Miguel Montalvo", "Miguel"]
+    },
+    {
+      "id": "carlos-zepeda",
+      "slug": "carlos-zepeda",
+      "displayName": "Carlos",
+      "fullName": "Carlos Zepeda",
+      "aliases": ["Carlos Zepeda", "Carlos"]
+    },
+    {
+      "id": "jesus-sanchez",
+      "slug": "jesus-sanchez",
+      "displayName": "Jesús",
+      "fullName": "Jesús Sanchez",
+      "aliases": ["Jesús Sanchez", "Jesus Sanchez", "Jesús", "Jesus"]
+    },
+    {
+      "id": "salma-rodriguez",
+      "slug": "salma-rodriguez",
+      "displayName": "Salma",
+      "fullName": "Salma Rodriguez",
+      "aliases": ["Salma Rodriguez", "Salma"]
+    },
+    {
+      "id": "braulio-cardona",
+      "slug": "braulio-cardona",
+      "displayName": "Braulio",
+      "fullName": "Braulio Cardona",
+      "aliases": ["Braulio Cardona", "Braulio"]
+    },
+    {
+      "id": "abraham-pacheco",
+      "slug": "abraham-pacheco",
+      "displayName": "Abraham",
+      "fullName": "Abraham Pacheco",
+      "aliases": ["Abraham Pacheco", "Abraham"]
+    },
+    {
+      "id": "mario-gonzalez",
+      "slug": "mario-gonzalez",
+      "displayName": "Mario",
+      "fullName": "Mario Gonzalez",
+      "aliases": ["Mario Gonzalez", "Mario"]
+    },
+    {
+      "id": "tania-martinez",
+      "slug": "tania-martinez",
+      "displayName": "Tania",
+      "fullName": "Tania Martinez",
+      "aliases": ["Tania Martinez", "Tania"]
+    },
+    {
+      "id": "arlene-mendoza",
+      "slug": "arlene-mendoza",
+      "displayName": "Arlene",
+      "fullName": "Arlene Mendoza",
+      "aliases": ["Arlene Mendoza", "Arlene"]
+    },
+    {
+      "id": "manuel-perez",
+      "slug": "manuel-perez",
+      "displayName": "Manuel",
+      "fullName": "Manuel Perez",
+      "aliases": ["Manuel Perez", "Manuel"]
+    },
+    {
+      "id": "berenice-zuniga",
+      "slug": "berenice-zuniga",
+      "displayName": "Berenice",
+      "fullName": "Berenice Zuñiga",
+      "aliases": ["Berenice Zuñiga", "Berenice Zuniga", "Berenice"]
+    }
+  ],
+  "ambiguousAliases": [
+    {
+      "alias": "Gerardo",
+      "advisorIds": ["gerardo-del-bosque", "gerardo-trevino"]
+    },
+    {
+      "alias": "Alejandro",
+      "advisorIds": ["alejandro-montemayor", "alejandro-puente"]
+    }
+  ]
+}

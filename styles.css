@@ -271,7 +271,17 @@ a {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: opacity 350ms ease;
+  opacity: 1;
+  transition: opacity 900ms ease;
+  will-change: opacity;
+}
+
+.hero-media.is-crossfade img {
+  opacity: 0;
+}
+
+.hero-media.is-crossfade img.is-active {
+  opacity: 1;
 }
 
 .hero-overlay {

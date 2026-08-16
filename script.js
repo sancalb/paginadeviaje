@@ -108,20 +108,91 @@ const heroSlides = [
   "public/assets/photos/hero-rome.avif",
   "public/assets/photos/hero-caribbean.avif",
   "public/assets/photos/hero-egypt.avif",
+  "public/assets/photos/las-vegas.avif",
+  "public/assets/photos/europe.avif",
+  "public/assets/photos/japan.avif",
+  "public/assets/photos/caribbean.avif",
+  "public/assets/photos/egypt-wide.avif",
+  "public/assets/photos/south-america.avif",
+  "public/assets/photos/falls.avif",
+  "public/assets/photos/paris.avif",
+  "public/assets/photos/las-vegas-sign.avif",
+  "public/assets/photos/egypt.avif",
+  "public/assets/photos/group-las-vegas-deviaje.jpg",
 ];
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if (heroImage && !reduceMotion) {
+  const heroMedia = heroImage.closest(".hero-media");
+  const secondaryHeroImage = heroImage.cloneNode();
+  const heroImageLayers = [heroImage, secondaryHeroImage];
   let slideIndex = 0;
-  setInterval(() => {
+  let activeHeroLayer = 0;
+  let isHeroTransitioning = false;
+
+  secondaryHeroImage.removeAttribute("data-hero-image");
+  secondaryHeroImage.setAttribute("aria-hidden", "true");
+  secondaryHeroImage.loading = "eager";
+  secondaryHeroImage.decoding = "async";
+  heroImage.classList.add("is-active");
+  heroMedia?.classList.add("is-crossfade");
+  heroMedia?.append(secondaryHeroImage);
+
+  const heroPreloadImages = new Map();
+  const preloadHeroSlide = (src) => {
+    if (heroPreloadImages.has(src)) return heroPreloadImages.get(src);
+
+    const preload = new Image();
+    preload.decoding = "async";
+    preload.src = src;
+    heroPreloadImages.set(src, preload);
+    return preload;
+  };
+
+  preloadHeroSlide(heroSlides[1]);
+
+  const decodeHeroImage = async (image) => {
+    if (typeof image.decode !== "function") return;
+
+    try {
+      await image.decode();
+    } catch {
+      // A failed decode should not block the carousel from continuing.
+    }
+  };
+
+  const advanceHeroSlide = async () => {
+    if (isHeroTransitioning) return;
+    isHeroTransitioning = true;
+
     slideIndex = (slideIndex + 1) % heroSlides.length;
-    heroImage.style.opacity = "0";
-    window.setTimeout(() => {
-      heroImage.src = heroSlides[slideIndex];
-      heroImage.style.opacity = "1";
-    }, 220);
-  }, 5600);
+    const nextSrc = heroSlides[slideIndex];
+    const nextLayer = (activeHeroLayer + 1) % heroImageLayers.length;
+    const currentImage = heroImageLayers[activeHeroLayer];
+    const nextImage = heroImageLayers[nextLayer];
+
+    preloadHeroSlide(nextSrc);
+
+    if (nextImage.getAttribute("src") !== nextSrc) {
+      nextImage.src = nextSrc;
+    }
+
+    await decodeHeroImage(nextImage);
+
+    window.requestAnimationFrame(() => {
+      nextImage.classList.add("is-active");
+      currentImage.classList.remove("is-active");
+      activeHeroLayer = nextLayer;
+
+      window.setTimeout(() => {
+        isHeroTransitioning = false;
+        preloadHeroSlide(heroSlides[(slideIndex + 1) % heroSlides.length]);
+      }, 980);
+    });
+  };
+
+  window.setInterval(advanceHeroSlide, 5600);
 }
 
 const destinationCatalogUrl = "/data/destinations.json";

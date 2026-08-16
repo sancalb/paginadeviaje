@@ -10,6 +10,9 @@ refreshGoogleReviewsCache({ simulateError })
       const reviews = Array.isArray(branch.reviews) ? branch.reviews.length : 0;
       console.log(`${label}: ${reviews} resenas normalizadas`);
     });
+    if (data.importReport) {
+      console.log(JSON.stringify(data.importReport, null, 2));
+    }
   })
   .catch((error) => {
     console.error(error.message);
