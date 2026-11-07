@@ -3,8 +3,9 @@ import assert from "node:assert/strict";
 import { writeFileSync, mkdirSync } from "node:fs";
 import { tourPackages } from "../data/tour-packages.ts";
 import { tourHref, tourQuoteHref } from "../lib/tour-routes.ts";
-const base = "http://localhost:4191",
+const base = process.env.QA_DISCOVER_URL || "http://localhost:4191",
   dir = "storage/qa/tours";
+assert.ok(["localhost", "127.0.0.1"].includes(new URL(base).hostname), "Local QA only");
 mkdirSync(dir, { recursive: true });
 const report = { routes: [], viewports: [], quotes: [], errors: [] };
 const browser = await chromium.launch({

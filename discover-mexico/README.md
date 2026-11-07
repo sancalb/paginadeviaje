@@ -140,13 +140,15 @@ existing services; they are not needed for browsing or the assisted planning flo
 
 ## Render preparation
 
-Create a **separate Web Service** from the repository, Root Directory
-`discover-mexico`, Build Command `npm ci && npm run build`, Start Command
-`npm start`, Node 24. Configure environment settings in Render, not source control.
-If the service root is this child directory, copy the public branch config into it
-or configure the path to an available file. Parent local cache files are ignored by
-git and will not appear in a new deployment. Prefer a cached reviews service and a
-read-only fallback artifact, not provider calls from the frontend.
+Use the exact manual settings and variables in `docs/RENDER-DEPLOYMENT.md`.
+Create a **separate Web Service** from `sancalb/paginadeviaje`, branch `main`,
+Root Directory `discover-mexico`, Build Command
+`npm ci --include=dev && npm run build`, Start Command `npm start`, Node 24.
+Configure environment settings in Render, not source control. Set
+`GOOGLE_REVIEWS_CONFIG_PATH=./data/google-reviews-branches.json` and
+`GOOGLE_REVIEWS_SERVICE_URL=https://www.deviaje.mx/api/google-reviews`.
+The packaged config is public business data; no parent directory or local cache
+is required. No new SearchAPI integration or API key is introduced.
 
 No disk is required for browsing or development-mode WhatsApp. Live inquiries need
 the independently verified durable service, not ephemeral local files.

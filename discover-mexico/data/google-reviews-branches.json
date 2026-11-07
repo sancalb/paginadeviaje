@@ -1,0 +1,18 @@
+{
+  "branches": {
+    "monterrey": {
+      "label": "Monterrey",
+      "expectedName": "deviaje.mx - Monterrey",
+      "phone": "81 3529 4738",
+      "address": "Blvd. Puerta del Sol 1013, Colinas de San Jemo 3er Sector, Monterrey, N.L.",
+      "mapsUrl": "https://share.google/tX8O89KmEiMsLPtea"
+    },
+    "guadalajara": {
+      "label": "Guadalajara",
+      "expectedName": "deviaje.mx - Guadalajara",
+      "phone": "33 3485 5963",
+      "address": "Av. de las Américas 453, Local 7, Col. Ladrón de Guevara, Guadalajara, Jal.",
+      "mapsUrl": "https://share.google/ctm8ggcWMxuWFL2av"
+    }
+  }
+}
