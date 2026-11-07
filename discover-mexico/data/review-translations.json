@@ -1,0 +1,132 @@
+{
+  "Ci9DQUlRQUNvZENodHljRjlvT2t4d00xOXlXbUpaUzBScVZHMUxNRTF3TW1KUlJuYxAB": {
+    "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2t4d00xOXlXbUpaUzBScVZHMUxNRTF3TW1KUlJuYxAB",
+    "sourceTextHash": "e086b3e7ea524f241513a11515c3e27a9d89c5cba2290f2668f17e04ec09693e",
+    "sourceLanguage": "es",
+    "targetLanguage": "en",
+    "translatedText": "2 trips organized by them this year, one to Cancun and another to Punta Cana. Thank you so much, Braulio and Gerardo. We had a great time on that adventure \ud83c\udfdd\ufe0f\ud83e\udd0d\u2728",
+    "translator": "deviaje.mx",
+    "createdAt": "2026-11-07T19:27:20Z",
+    "languageDecision": {
+      "method": "manual",
+      "note": "Read the full original: Spanish narration of two trips and thanks. Super is used within Spanish, not an English sentence. Both Cancun and Punta Cana are retained."
+    }
+  },
+  "ChZDSUhNMG9nS0VJQ0FnSUNwNS03VktREAE": {
+    "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNwNS03VktREAE",
+    "sourceTextHash": "6b5af5e5e87eb865c6a4a6c7340c48b2368152717ccbc9817aa39c5d4cc4fd59",
+    "sourceLanguage": "es",
+    "targetLanguage": "en",
+    "translatedText": "The service since we arrived in Cancun has been excellent.\nThe person was waiting for us outside the airport with a sign with our name on it and was very attentive.\nWhen we arrived at Hotel GR Solaris Cancun, we received a very warm welcome and were treated very warmly throughout our 5-day stay.\nMany thanks to the travel agency \"diviaje\" for the outstanding and excellent service from Beto and Herry.\n\nSee you soon \ud83d\udc4b\ud83d\ude18",
+    "translator": "deviaje.mx",
+    "createdAt": "2026-11-07T19:27:20Z",
+    "languageDecision": {
+      "method": "manual",
+      "note": "Read the full original: Spanish throughout, with spelling errors in airport and connecting words. Translate their clear contextual meaning; preserve the hotel, agency spelling, names, five days, paragraphs and farewell."
+    }
+  },
+  "Ci9DQUlRQUNvZENodHljRjlvT2trNU1ESlpjQzFtV0dKR1F6QnRhVWhPZDJWMFJWRRAB": {
+    "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2trNU1ESlpjQzFtV0dKR1F6QnRhVWhPZDJWMFJWRRAB",
+    "sourceTextHash": "d57bdf70594a732059b8ed628c0876bf6941696debf7233517bcf6da8e97313f",
+    "sourceLanguage": "es",
+    "targetLanguage": "en",
+    "translatedText": "We had a really lovely trip, with attentive service from the moment we got off the plane in Los Cabos. Salma's service was really good, and so was the service at the Riu hotel. They met the whole family's expectations; there were 10 of us.",
+    "translator": "deviaje.mx",
+    "createdAt": "2026-11-07T19:27:20Z",
+    "languageDecision": {
+      "method": "manual",
+      "note": "Read the full original: Spanish family-trip account. Los Cabos, Salma and Riu are proper names, not evidence of English. Keep the party of ten and expectations met, without upgrading the praise."
+    }
+  },
+  "ChZDSUhNMG9nS0VJQ0FnSURubi16R1dREAE": {
+    "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURubi16R1dREAE",
+    "sourceTextHash": "57e2cb9d32ed079aa12ebadc6dc024eb3e728295bb84aad4f91faaee348a8ef5",
+    "sourceLanguage": "es",
+    "targetLanguage": "en",
+    "translatedText": "Excellent service. They helped me plan my trip to Cancun, with excellent service from Misael Rdz before and during the trip. 100% recommended!!! Thank you so much.",
+    "translator": "deviaje.mx",
+    "createdAt": "2026-11-07T19:27:20Z",
+    "languageDecision": {
+      "method": "manual",
+      "note": "Read the full original: Spanish planning and service recommendation. Preserve the advisor's abbreviated name and the distinction between before and during the trip. No English prose to relabel."
+    }
+  },
+  "Ci9DQUlRQUNvZENodHljRjlvT20xUFNHNVJYMmxUUVV4bFJIWTNRMmxWUVVwa09WRRAB": {
+    "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT20xUFNHNVJYMmxUUVV4bFJIWTNRMmxWUVVwa09WRRAB",
+    "sourceTextHash": "571b7a09f3c9544332a14ea03a8245d50807357543f5876f2ee83f45f0b7075e",
+    "sourceLanguage": "es",
+    "targetLanguage": "en",
+    "translatedText": "Excellent trip to Los Cabos. Everything went as planned, everything was on time, and Salma's service was excellent. 100% recommended.",
+    "translator": "deviaje.mx",
+    "createdAt": "2026-11-07T19:27:20Z",
+    "languageDecision": {
+      "method": "manual",
+      "note": "Read the full original: Spanish recommendation. Retain both going as planned and punctuality, along with Salma's name; do not infer other services."
+    }
+  },
+  "ChdDSUhNMG9nS0VJQ0FnSUNib2ZIWXVRRRAB": {
+    "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUNib2ZIWXVRRRAB",
+    "sourceTextHash": "4ad7a05deaafe06a12bd1d17c0d0566c30a6df49110bb112db32fc8ff93d0bf9",
+    "sourceLanguage": "es",
+    "targetLanguage": "en",
+    "translatedText": "They helped us a lot with organizing our trip to Cancun, always willing to answer our questions. I recommend them 100%.",
+    "translator": "deviaje.mx",
+    "createdAt": "2026-11-07T19:27:20Z",
+    "languageDecision": {
+      "method": "manual",
+      "note": "Read the full original: Spanish account of planning help and willingness to resolve questions. The first-person recommendation is preserved; the place name does not determine the source language."
+    }
+  },
+  "ChdDSUhNMG9nS0VJQ0FnSURaZ3ZfbDdRRRAB": {
+    "reviewId": "ChdDSUhNMG9nS0VJQ0FnSURaZ3ZfbDdRRRAB",
+    "sourceTextHash": "9536601b611f759bbd3efcf46505f51e5110f4df6c93216b9cda4d14b6744502",
+    "sourceLanguage": "es",
+    "targetLanguage": "en",
+    "translatedText": "Very kind and on top of everything from my departure from Monterrey to my arrival in Cancun, and on the return journey too!! 100% recommended and trustworthy \ud83d\udc4c\ud83c\udffc",
+    "translator": "deviaje.mx",
+    "createdAt": "2026-11-07T19:27:20Z",
+    "languageDecision": {
+      "method": "manual",
+      "note": "Read the full original: Spanish outbound and return journey account. Render viceversa as the return journey, retaining both cities and the trustworthiness claim. No English sentence in the original."
+    }
+  },
+  "Ci9DQUlRQUNvZENodHljRjlvT25kaWRWWXhMWFJ6Y2xaWU5tZGtkVUpaUVhkeFkzYxAB": {
+    "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT25kaWRWWXhMWFJ6Y2xaWU5tZGtkVUpaUVhkeFkzYxAB",
+    "sourceTextHash": "db9f61dafe9a5631d06f200d33546f7ad8978175c37d5a5a274ad21edc0173d8",
+    "sourceLanguage": "es",
+    "targetLanguage": "en",
+    "translatedText": "The agency took my mom and me to Brazil, and honestly they were really good and attentive.\nWe are from Monterrey, and the service from our agent Rafael was always very good, with quick responses.\n100% recommended, and we will be back.",
+    "translator": "deviaje.mx",
+    "createdAt": "2026-11-07T19:27:20Z",
+    "languageDecision": {
+      "method": "manual",
+      "note": "Read the full original: Spanish, despite an international destination. Preserve Brazil as the trip destination, Monterrey as origin, the mother-and-child travelers, agent and three paragraphs; do not recast it as Mexico travel."
+    }
+  },
+  "Ci9DQUlRQUNvZENodHljRjlvT21vNWVqbHVaMUV0WjNFdFprbFJXamhrTjFkcVpFRRAB": {
+    "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT21vNWVqbHVaMUV0WjNFdFprbFJXamhrTjFkcVpFRRAB",
+    "sourceTextHash": "45d99ebf143a910f99ee06e121f8f1a0207b6b560b5b38f95b89eb15cef3cb0c",
+    "sourceLanguage": "es",
+    "targetLanguage": "en",
+    "translatedText": "Arlene assisted me. Excellent attention and service. She found me the best airfare and stayed in touch with me the whole time by mobile phone and WhatsApp. She sent me my boarding passes, and it was a very comfortable trip. Highly recommended.",
+    "translator": "deviaje.mx",
+    "createdAt": "2026-11-07T19:27:20Z",
+    "languageDecision": {
+      "method": "manual",
+      "note": "Read the full original: Spanish service account. Cel and wa are contextual Spanish abbreviations for mobile phone and WhatsApp, not English prose or contact details. Preserve airfare, boarding passes and comfort claims."
+    }
+  },
+  "Ci9DQUlRQUNvZENodHljRjlvT214Mk0zaFNVelJhWjBNMk9FVkZORFJrTVV0eU5rRRAB": {
+    "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT214Mk0zaFNVelJhWjBNMk9FVkZORFJrTVV0eU5rRRAB",
+    "sourceTextHash": "82a3f674d50f78ccd6bff5c979a791ccb13423531e6705aa53038ac7966605e2",
+    "sourceLanguage": "es",
+    "targetLanguage": "en",
+    "translatedText": "I had a very good experience with the agency on my trip to the Dominican Republic. From the planning through to the return journey, I received very friendly service, and they paid attention to every detail, which let me enjoy the trip with great peace of mind.\n\nI especially appreciate their willingness to help and their support throughout the whole process. It was a very special trip for me, and I have very fond memories of this experience. I would definitely consider them again to organize a future trip.\ud83c\udde9\ud83c\uddf4\ud83e\ude77",
+    "translator": "deviaje.mx",
+    "createdAt": "2026-11-07T19:27:20Z",
+    "languageDecision": {
+      "method": "manual",
+      "note": "Read both full original paragraphs: Spanish, not English. Retain the Dominican Republic, the support and memories, and conditional willingness to consider the agency again, not a promise to rebook. Preserve paragraphs and emoji."
+    }
+  }
+}

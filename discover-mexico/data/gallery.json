@@ -1,0 +1,274 @@
+[
+  {
+    "destination": "mexico-city",
+    "src": "/media/gallery/mexico-city-chapultepec.webp",
+    "alt": {
+      "en": "Chapultepec Castle facade and formal gardens in Mexico City",
+      "es": "Fachada y jardines del Castillo de Chapultepec en Ciudad de México"
+    },
+    "caption": {
+      "en": "Chapultepec Castle, Mexico City",
+      "es": "Castillo de Chapultepec, Ciudad de México"
+    },
+    "author": "Arian Zwegers",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mexico_City,_Chapultepec_Castle_(20677400112).jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "destination": "mexico-city",
+    "src": "/media/gallery/mexico-city-zocalo.webp",
+    "alt": {
+      "en": "View of the Zocalo in Mexico City",
+      "es": "Vista del Zócalo de Ciudad de México"
+    },
+    "caption": {
+      "en": "The Zocalo, Mexico City",
+      "es": "El Zócalo, Ciudad de México"
+    },
+    "author": "Alex Polezhaev",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mexico_City._Zocalo.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "destination": "guadalajara",
+    "src": "/media/gallery/guadalajara-teatro-degollado.webp",
+    "alt": {
+      "en": "Ornate balconies inside Teatro Degollado in Guadalajara",
+      "es": "Palcos ornamentados en el interior del Teatro Degollado en Guadalajara"
+    },
+    "caption": {
+      "en": "Inside Teatro Degollado, Guadalajara",
+      "es": "Interior del Teatro Degollado, Guadalajara"
+    },
+    "author": "Paredes Umberto",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Teatro_Degollado,_Guadalajara.JPG",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "destination": "guadalajara",
+    "src": "/media/gallery/guadalajara-hospicio-cabanas.webp",
+    "alt": {
+      "en": "Aerial view of Hospicio Cabanas and its courtyards in Guadalajara",
+      "es": "Vista aérea del Hospicio Cabañas y sus patios en Guadalajara"
+    },
+    "caption": {
+      "en": "Hospicio Cabanas, Guadalajara",
+      "es": "Hospicio Cabañas, Guadalajara"
+    },
+    "author": "ProtoplasmaKid",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hospicio_Caba%C3%B1as,_Guadalajara,_Jalisco_-_12.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "destination": "tequila",
+    "src": "/media/gallery/tequila-church-plaza.webp",
+    "alt": {
+      "en": "Church and main pavilion in the center of Tequila, Jalisco",
+      "es": "Parroquia y quiosco principal en el centro de Tequila, Jalisco"
+    },
+    "caption": {
+      "en": "The main square of Tequila, Jalisco",
+      "es": "Plaza principal de Tequila, Jalisco"
+    },
+    "author": "Andres Gil Ron",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tequila_Church_and_Main_Pavilion.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "destination": "tequila",
+    "src": "/media/gallery/tequila-agave-landscape.webp",
+    "alt": {
+      "en": "Agave fields in the landscape near Tequila, Jalisco",
+      "es": "Campos de agave en el paisaje cercano a Tequila, Jalisco"
+    },
+    "caption": {
+      "en": "Agave landscape near Tequila",
+      "es": "Paisaje agavero cerca de Tequila"
+    },
+    "author": "Juan Carlos Fonseca Mata",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paisaje_agaves_cerca_de_Tequila,_Jal._28042024.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "destination": "puerto-vallarta",
+    "src": "/media/gallery/puerto-vallarta-malecon.webp",
+    "alt": {
+      "en": "The Malecon waterfront in Puerto Vallarta",
+      "es": "El paseo del Malecón en Puerto Vallarta"
+    },
+    "caption": {
+      "en": "The Malecon, Puerto Vallarta",
+      "es": "El Malecón, Puerto Vallarta"
+    },
+    "author": "Andrew Milligan sumo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Malecon,_Puerto_Vallarta_(27212709499).jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "destination": "puerto-vallarta",
+    "src": "/media/gallery/puerto-vallarta-los-muertos-pier.webp",
+    "alt": {
+      "en": "Los Muertos Pier beside the coast of Puerto Vallarta",
+      "es": "Muelle de Los Muertos junto a la costa de Puerto Vallarta"
+    },
+    "caption": {
+      "en": "Los Muertos Pier, Puerto Vallarta",
+      "es": "Muelle de Los Muertos, Puerto Vallarta"
+    },
+    "author": "Another Believer",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puerto_Vallarta,_Jalisco_(2021)_-_13.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "destination": "cancun",
+    "src": "/media/gallery/cancun-playa-delfines.webp",
+    "alt": {
+      "en": "Sand and Caribbean surf at Playa Delfines in Cancun",
+      "es": "Arena y oleaje del Caribe en Playa Delfines, Cancún"
+    },
+    "caption": {
+      "en": "Playa Delfines, Cancun",
+      "es": "Playa Delfines, Cancún"
+    },
+    "author": "jc_castaneda",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Playa_Delfines_-_panoramio.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "destination": "cancun",
+    "src": "/media/gallery/cancun-el-rey.webp",
+    "alt": {
+      "en": "Maya ruins at the El Rey archaeological site in Cancun",
+      "es": "Ruinas mayas en la zona arqueológica El Rey de Cancún"
+    },
+    "caption": {
+      "en": "El Rey archaeological site, Cancun",
+      "es": "Zona arqueológica El Rey, Cancún"
+    },
+    "author": "In Vitrio",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:El_Rey_archaeological_site.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "destination": "riviera-maya",
+    "src": "/media/gallery/riviera-maya-tulum-beach.webp",
+    "alt": {
+      "en": "Beach below the archaeological site at Tulum, Riviera Maya",
+      "es": "Playa al pie de la zona arqueológica de Tulum, Riviera Maya"
+    },
+    "caption": {
+      "en": "Tulum beach, Riviera Maya",
+      "es": "Playa de Tulum, Riviera Maya"
+    },
+    "author": "Lridgard",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beach_at_Tulum_Mexico.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "destination": "riviera-maya",
+    "src": "/media/gallery/riviera-maya-akumal.webp",
+    "alt": {
+      "en": "Rocky shoreline and shallow water at Akumal, Riviera Maya",
+      "es": "Costa rocosa y aguas poco profundas de Akumal, Riviera Maya"
+    },
+    "caption": {
+      "en": "The coast at Akumal, Riviera Maya",
+      "es": "La costa de Akumal, Riviera Maya"
+    },
+    "author": "Serge Melki",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akumal_Beach_-_Mexico_(4303204764).jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "destination": "oaxaca",
+    "src": "/media/gallery/oaxaca-cathedral.webp",
+    "alt": {
+      "en": "Stone facade of the Metropolitan Cathedral in Oaxaca",
+      "es": "Fachada de cantera de la Catedral Metropolitana de Oaxaca"
+    },
+    "caption": {
+      "en": "Oaxaca Metropolitan Cathedral",
+      "es": "Catedral Metropolitana de Oaxaca"
+    },
+    "author": "Jortegacillero",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oaxaca-Catedral.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "destination": "oaxaca",
+    "src": "/media/gallery/oaxaca-monte-alban.webp",
+    "alt": {
+      "en": "Main plaza and stone platforms at Monte Alban, Oaxaca",
+      "es": "Plaza principal y plataformas de piedra en Monte Albán, Oaxaca"
+    },
+    "caption": {
+      "en": "Monte Alban, Oaxaca",
+      "es": "Monte Albán, Oaxaca"
+    },
+    "author": "Öskr Rck",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Monte_Alban,_Plaza,_Oaxaca.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "destination": "los-cabos",
+    "src": "/media/gallery/los-cabos-san-jose-mission.webp",
+    "alt": {
+      "en": "Mission church in the center of San Jose del Cabo",
+      "es": "Iglesia de la misión en el centro de San José del Cabo"
+    },
+    "caption": {
+      "en": "San Jose del Cabo mission, Los Cabos",
+      "es": "Misión de San José del Cabo, Los Cabos"
+    },
+    "author": "Thelmadatter",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:SanJosedelCaboChurch.JPG",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "destination": "los-cabos",
+    "src": "/media/gallery/los-cabos-lovers-beach.webp",
+    "alt": {
+      "en": "Waves breaking over boulders at Lovers Beach in Cabo San Lucas",
+      "es": "Olas entre las rocas de Playa del Amor, Cabo San Lucas"
+    },
+    "caption": {
+      "en": "Rocky shore at Lovers Beach, Los Cabos",
+      "es": "Costa rocosa de Playa del Amor, Los Cabos"
+    },
+    "author": "Kirt Edblom",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lovers_Beach_Los_Cabos_2008_(8997396795).jpg",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  {
+    "destination": "oaxaca",
+    "src": "/media/gallery/oaxaca-mercado-20-noviembre-cooking.webp",
+    "alt": {
+      "en": "Two cooks grilling tasajo and sausages at Mercado 20 de Noviembre in Oaxaca",
+      "es": "Dos cocineras asando tasajo y salchichas en el Mercado 20 de Noviembre de Oaxaca"
+    },
+    "caption": {
+      "en": "Tasajo and sausages on the grill at Mercado 20 de Noviembre, Oaxaca",
+      "es": "Tasajo y salchichas a la parrilla en el Mercado 20 de Noviembre, Oaxaca"
+    },
+    "author": "AlejandroLinaresGarcia",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20NovMktOaxacaCooking.JPG",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  }
+]
