@@ -48,7 +48,10 @@ function resolveRequestPath(url) {
   }
 
   if (existsSync(resolved) && statSync(resolved).isDirectory()) {
-    return join(resolved, "index.html");
+    const directoryIndex = join(resolved, "index.html");
+    return canServeStaticFile(directoryIndex) && existsSync(directoryIndex) && statSync(directoryIndex).isFile()
+      ? directoryIndex
+      : join(root, "index.html");
   }
 
   if (existsSync(resolved) && canServeStaticFile(resolved)) {
@@ -108,7 +111,9 @@ function start(port) {
       "Cache-Control": "no-store",
     });
 
-    createReadStream(filePath).pipe(response);
+    const stream = createReadStream(filePath);
+    stream.on("error", () => response.destroy());
+    stream.pipe(response);
   });
 
   server.on("error", (error) => {
