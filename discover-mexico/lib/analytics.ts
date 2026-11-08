@@ -125,13 +125,14 @@ export function createAnalyticsClient(options: {
   let previousLocation = "";
   let referrer = "";
   const receipts = new Set<string>();
-  function emit(event: EventName, context: Context, extra: Record<string, string | null> = {}) {
+  function emit(event: EventName, context: Context, extra: Record<string, string | null> = {}, sourceUrl?: string) {
     try {
+      const url = sourceUrl || options.getUrl();
       options.push({
         event, measurement_source: "discover_app", ...context,
-        source_page: contextForUrl(options.getUrl()).page_path,
-        page_location: locationFor(options.getUrl(), contextForUrl(options.getUrl())),
-        page_referrer: referrer,
+        source_page: contextForUrl(url).page_path,
+        page_location: locationFor(url, contextForUrl(url)),
+        page_referrer: sourceUrl && sourceUrl !== options.getUrl() ? "" : referrer,
         target_page: null, interaction_location: null, office: null,
         request_state: null, delivery_status: null, ...extra,
       });
@@ -176,12 +177,13 @@ export function createAnalyticsClient(options: {
         }, { target_page: selected.page_path, interaction_location: placement });
       } catch { /* Ignore malformed or unsupported links. */ }
     },
-    inquiryResponse(payload: unknown, status: number, selection: Selection = {}) {
+    inquiryResponse(payload: unknown, status: number, selection: Selection = {}, sourceUrl?: string) {
       try {
         const result = classifyInquiryResponse(payload, status);
         if (!result) return;
         const requestId = (payload as { requestId: string }).requestId;
-        const context = applySelection(contextForUrl(options.getUrl()), selection);
+        const url = sourceUrl || options.getUrl();
+        const context = applySelection(contextForUrl(url), selection);
         const extra = {
           request_state: result === "validated" ? "validated_not_received" : "received",
           delivery_status: result === "validated" ? "not_sent" : result,
@@ -190,7 +192,7 @@ export function createAnalyticsClient(options: {
           const key = event + ":" + requestId;
           if (receipts.has(key)) return;
           receipts.add(key);
-          emit(event, context, extra);
+          emit(event, context, extra, url);
         };
         once("quote_request_validated");
         if (result !== "validated") once("quote_request_received");
@@ -219,8 +221,8 @@ const browserClient = createAnalyticsClient({
 export const trackPageView = () => browserClient.pageView();
 export const trackLinkActivation = (url: string, placement: Placement, languageSwitch = false) =>
   browserClient.linkActivated(url, placement, languageSwitch);
-export const trackInquiryResponse = (payload: unknown, status: number, selection: Selection) =>
-  browserClient.inquiryResponse(payload, status, selection);
+export const trackInquiryResponse = (payload: unknown, status: number, selection: Selection, sourceUrl?: string) =>
+  browserClient.inquiryResponse(payload, status, selection, sourceUrl);
 
 export function buildGtmBootstrap(pathname: string): string {
   const context = contextForUrl(pathname);

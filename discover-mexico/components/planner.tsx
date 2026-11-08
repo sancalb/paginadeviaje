@@ -188,6 +188,7 @@ export function Planner({
       website: String(data.get("website") || ""),
       startedAt: started.current,
     };
+    const measurementSource = window.location.href;
     try {
       const response = await fetch("/api/inquiries", {
         method: "POST",
@@ -202,7 +203,7 @@ export function Planner({
       trackInquiryResponse(payload, response.status, {
         packageId: tourPackage?.id,
         destinations: selected,
-      });
+      }, measurementSource);
       if (tourPackage && payload.whatsappUrl) {
         try {
           const url = new URL(payload.whatsappUrl);

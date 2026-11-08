@@ -79,6 +79,23 @@ function clientAt(path = "/en", referrer = "") {
   return { client, events, settings, navigate: (path) => { url = new URL(path, origin).href; } };
 }
 
+test("a delayed receipt keeps the form's original page and language after navigation", () => {
+  const source = `${origin}/en/tailor-made-trips?package=MEX-CUN-7D6N&${privateQuery}`;
+  const { client, events, navigate } = clientAt(source);
+  client.pageView();
+  navigate("/es/contacto");
+  client.pageView();
+  client.inquiryResponse(response("live", "delivered"), 200,
+    { packageId: "MEX-CUN-7D6N", destinations: ["cancun"] }, source);
+  const lead = events.find((event) => event.event === "generate_lead");
+  assert.equal(lead.language, "en");
+  assert.equal(lead.source_page, "/en/tailor-made-trips");
+  assert.equal(lead.page_location, origin + "/en/tailor-made-trips");
+  assert.equal(lead.package_id, "MEX-CUN-7D6N");
+  assert.equal(lead.page_referrer, "");
+  assertEvents(events, [requestId()]);
+});
+
 test("contextForUrl identifies all six localized package URLs using catalog-only context", () => {
   assert.equal(tourIdentities.length * locales.length, 6);
   const paths = new Set();
