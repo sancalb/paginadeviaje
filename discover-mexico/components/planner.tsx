@@ -5,6 +5,7 @@ import Link from "next/link";
 import { destinations, journeys, t, type Locale } from "../data/content";
 import { getTourIdentityById } from "../data/tour-identities";
 import { href } from "../lib/routes";
+import { trackInquiryResponse } from "../lib/analytics";
 type HotelCategory = "comfort" | "premium" | "luxury";
 export function Planner({
   locale,
@@ -198,6 +199,10 @@ export function Planner({
       });
       const payload = await response.json();
       if (!response.ok) throw new Error(payload.error || "FAILED");
+      trackInquiryResponse(payload, response.status, {
+        packageId: tourPackage?.id,
+        destinations: selected,
+      });
       if (tourPackage && payload.whatsappUrl) {
         try {
           const url = new URL(payload.whatsappUrl);

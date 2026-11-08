@@ -162,6 +162,15 @@ This does not require changing apex `deviaje.mx` or `agentes.deviaje.mx`.
 
 ## Verification
 
+Google measurement is isolated to Discover: `GTM-K45KXVZR`, safe catalog-only
+dataLayer events and explicit validated/queued/delivered inquiry states. See
+`docs/GOOGLE-MEASUREMENT.md` for the account-side setup, denied consent defaults,
+PII exclusions, conversion semantics and Tag Assistant checklist. Existing Google
+tag settings must disable automatic personal-data/form/outbound/history collection;
+the application does not grant analytics or advertising consent on form submission.
+`node tools/analytics-qa.mjs` runs local measurement QA without delivering hits to
+Google; `--real-container` also inspects the published container's attempted hits.
+
 `npm run build` and `npm run check` verify production compilation and TypeScript.
 Server contract/security tests use synthetic fixtures and injected transports.
 `node tools/qa.mjs` tests real local pages at 375/430/768/1440, routes, images,

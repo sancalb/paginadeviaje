@@ -1,5 +1,8 @@
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { Header, Footer, RevealObserver } from "../../components/shell";
+import { DiscoverMeasurement } from "../../components/measurement";
+import { GTM_CONTAINER_ID } from "../../lib/analytics";
 export default async function LocaleLayout({
   children,
   params,
@@ -12,6 +15,12 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body>
+        <noscript>
+          <iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_CONTAINER_ID}`}
+            height="0" width="0" style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager" />
+        </noscript>
+        <Suspense fallback={null}><DiscoverMeasurement /></Suspense>
         <a className="skip" href="#main">
           {locale === "en" ? "Skip to content" : "Saltar al contenido"}
         </a>
